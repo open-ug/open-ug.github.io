@@ -1,21 +1,39 @@
-import { Footer, Layout, Navbar } from "nextra-theme-docs";
-import { Banner, Head } from "nextra/components";
+import { Footer, Layout } from "nextra-theme-docs";
+import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
+import "./global.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   // Define your metadata here
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+  title: "Open UG | Open Source for Africa",
+  description:
+    "Building Foundational Open Source Software to support the Tech Ecosystem in Africa.",
+  openGraph: {
+    title: "Open UG",
+    description: "Open Source for Africa",
+    url: "https://openug.org",
+    siteName: "Open UG",
+    images: [
+      {
+        url: "/favicon-96x96.png",
+        width: 96,
+        height: 96,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
-const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>;
-const navbar = (
-  <Navbar
-    logo={<b>Nextra</b>}
-    // ... Your additional navbar options
-  />
+const navbar = <Navbar />;
+const footer = (
+  <Footer>
+    {new Date().getFullYear()} © Open UG & Cranom Technologies Limited.
+  </Footer>
 );
-const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>;
 
 export default async function RootLayout({
   children,
@@ -53,7 +71,6 @@ export default async function RootLayout({
       </Head>
       <body>
         <Layout
-          banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
