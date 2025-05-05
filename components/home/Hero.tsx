@@ -10,12 +10,12 @@ export default function HeroSection() {
               <h1 className="text-4xl tracking-tight font-extrabold text-black sm:text-5xl md:text-6xl">
                 <span className="block">OPEN UG</span>
                 <span className="block text-red-600 mt-2">
-                  Open Source for Africa
+                  Open Source for Uganda
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Building Foundational Open Source Software to support the Tech
-                Ecosystem in Africa.
+                Ecosystem in Uganda.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -53,15 +53,15 @@ export default function HeroSection() {
             </div>
             <div className="grid grid-cols-3 gap-4 text-white">
               <div className="p-4 bg-gray-700 rounded-lg">
-                <h3 className="font-bold text-xl mb-2">10+</h3>
+                <h3 className="font-bold text-xl mb-2">3+</h3>
                 <p className="text-sm">Open Source Projects</p>
               </div>
               <div className="p-4 bg-gray-700 rounded-lg">
-                <h3 className="font-bold text-xl mb-2">200+</h3>
+                <h3 className="font-bold text-xl mb-2">2+</h3>
                 <p className="text-sm">Contributors</p>
               </div>
               <div className="p-4 bg-gray-700 rounded-lg">
-                <h3 className="font-bold text-xl mb-2">5+</h3>
+                <h3 className="font-bold text-xl mb-2">1</h3>
                 <p className="text-sm">African Countries</p>
               </div>
             </div>
