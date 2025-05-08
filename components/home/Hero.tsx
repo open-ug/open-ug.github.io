@@ -8,7 +8,7 @@ export default function HeroSection() {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-black sm:text-5xl md:text-6xl">
-                <span className="block">OPEN UG</span>
+                <span className="block">OPEN UG LABS</span>
                 <span className="block text-red-600 mt-2">
                   Open Source for Uganda
                 </span>

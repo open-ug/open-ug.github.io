@@ -25,7 +25,7 @@ export default function Navbar() {
           {/* Logo and site name */}
           <div className="flex-shrink-0 flex items-center">
             <img className="h-12 w-12" src="/favicon.svg" alt="Open UG Logo" />
-            <span className="font-bold text-xl text-black">Open UG</span>
+            <span className="font-bold text-xl text-black">Open UG Labs</span>
           </div>
 
           {/* Desktop menu */}
@@ -60,7 +60,7 @@ export default function Navbar() {
                 About
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/open-ug"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-3 py-2 rounded-md text-sm font-medium bg-yellow-400 text-black hover:bg-yellow-500 transition duration-300"
@@ -120,7 +120,7 @@ export default function Navbar() {
             About
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/open-ug"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-3 py-2 rounded-md text-base font-medium bg-yellow-400 text-black hover:bg-yellow-500"

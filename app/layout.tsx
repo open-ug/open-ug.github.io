@@ -8,9 +8,9 @@ import Navbar from "@/components/Navbar";
 export const metadata = {
   // Define your metadata here
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-  title: "Open UG | Open Source for Africa",
+  title: "Open UG Labs | Open Source for Africa",
   description:
-    "Building Foundational Open Source Software to support the Tech Ecosystem in Africa.",
+    "Building Foundational Open Source Software to support the Tech Ecosystem in Uganda and Beyond.",
   openGraph: {
     title: "Open UG",
     description: "Open Source for Africa",
@@ -31,7 +31,7 @@ export const metadata = {
 const navbar = <Navbar />;
 const footer = (
   <Footer>
-    {new Date().getFullYear()} © Open UG & Cranom Technologies Limited.
+    {new Date().getFullYear()} © Open UG Labs & Cranom Technologies Limited.
   </Footer>
 );
 
