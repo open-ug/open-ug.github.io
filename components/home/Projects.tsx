@@ -13,10 +13,11 @@ export default function ProjectsSection() {
     {
       id: 1,
       title: "Conveyor CI",
-      description: "A Protocol for building CI/CD Platforms and Tools",
+      description:
+        "A software framework for building CI/CD Platforms and Tools",
       icon: <FiLayers className="h-6 w-6" />,
       color: "bg-red-600",
-      link: "https://github.com/open-ug/conveyor",
+      link: "https://conveyor.open.ug",
     },
     {
       id: 2,
