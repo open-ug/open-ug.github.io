@@ -26,7 +26,7 @@ export default function ProjectsSection() {
       icon: <FiCode className="h-6 w-6" />,
       color: "bg-yellow-400",
       textColor: "text-black",
-      link: "https://github.com/open-ug/orbiton",
+      link: "https://orbiton.js.org",
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ export default function ProjectsSection() {
         "A TLS Protocol implementation that provides post quantum security",
       icon: <FiLock className="h-6 w-6" />,
       color: "bg-red-600",
-      link: "https://github.com/open-ug/pq-tls",
+      link: "https://github.com/open-ug",
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export default function ProjectsSection() {
       icon: <FiDollarSign className="h-6 w-6" />,
       color: "bg-yellow-400",
       textColor: "text-black",
-      link: "https://github.com/open-ug/ug-mobile-money",
+      link: "https://github.com/open-ug/ugmobilemoney-py",
     },
   ];
 
