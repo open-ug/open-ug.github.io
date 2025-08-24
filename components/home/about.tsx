@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState, useEffect, useRef } from "react";
 import {
   Rocket,
@@ -111,6 +112,7 @@ const AboutSection = () => {
       green: "border-green-600 bg-green-900/20 text-green-400",
       purple: "border-purple-600 bg-purple-900/20 text-purple-400",
     };
+    // @ts-ignore
     return colors[color] || colors.red;
   };
 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import {
   Heart,
@@ -12,12 +14,10 @@ import {
   Shield,
   Smartphone,
   Wifi,
-  DollarSign,
   GraduationCap,
   Stethoscope,
   Sprout,
   Car,
-  Home,
   Factory,
   Target,
 } from "lucide-react";
@@ -219,7 +219,7 @@ const ProjectTypesSection = () => {
     },
   ];
 
-  const getColorClasses = (color, active = false) => {
+  const getColorClasses = (color: any, active = false) => {
     const colors = {
       red: active
         ? "border-red-600 bg-red-900/20 text-red-400"
@@ -234,6 +234,7 @@ const ProjectTypesSection = () => {
         ? "border-purple-600 bg-purple-900/20 text-purple-400"
         : "border-purple-600/30 text-purple-400/70",
     };
+    // @ts-ignore
     return colors[color] || colors.red;
   };
 
@@ -416,7 +417,7 @@ const ProjectTypesSection = () => {
             Ready to Submit Your Project?
           </h3>
           <p className="text-gray-400 mb-8 max-w-3xl mx-auto">
-            Whether you're building the next breakthrough in agricultural
+            Whether you{"'"}re building the next breakthrough in agricultural
             technology, creating solutions for offline environments, or
             developing commercial open source products, we want to hear from
             you.

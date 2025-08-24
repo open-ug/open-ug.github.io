@@ -5,7 +5,6 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Phone,
   ExternalLink,
   ArrowRight,
   Code,
@@ -161,7 +160,7 @@ const Footer = () => {
               </div>
 
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Accelerating Uganda's open source future by bridging local
+                Accelerating Uganda{"'"}s open source future by bridging local
                 innovation with global foundations. From sandbox to graduation,
                 we support developers in building software that serves both
                 local and international communities.
@@ -246,7 +245,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold text-white mb-4">Stay Updated</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Get monthly updates on new projects, events, and opportunities in
-              Uganda's open source ecosystem.
+              Uganda{"'"}s open source ecosystem.
             </p>
           </div>
 
