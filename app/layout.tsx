@@ -1,9 +1,10 @@
-import { Footer, Layout } from "nextra-theme-docs";
+import { Layout } from "nextra-theme-docs";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import "./global.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/home/footer";
 
 export const metadata = {
   // Define your metadata here
@@ -29,11 +30,6 @@ export const metadata = {
 };
 
 const navbar = <Navbar />;
-const footer = (
-  <Footer>
-    {new Date().getFullYear()} © Open UG Labs & Cranom Technologies Limited.
-  </Footer>
-);
 
 export default async function RootLayout({
   children,
@@ -74,7 +70,7 @@ export default async function RootLayout({
           navbar={navbar}
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
-          footer={footer}
+          footer={<Footer />}
           // ... Your additional layout options
         >
           {children}
