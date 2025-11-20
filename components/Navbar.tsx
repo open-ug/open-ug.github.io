@@ -1,152 +1,104 @@
 "use client";
-import React, { useState } from "react";
-import { Menu, X, Github } from "lucide-react";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMenu, FiX } from "react-icons/fi";
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Mission", href: "#mission" },
+    { name: "Research", href: "#research" },
+    { name: "Future Tech", href: "#future-tech" },
+  ];
 
   return (
-    <nav className="bg-black border-b border-gray-800 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo and Brand */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-red-800 to-red-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">UG</span>
-            </div>
-            <div>
-              <span className="text-xl font-semibold text-white">
-                Open UG Labs
-              </span>
-            </div>
-          </div>
+    <header className="fixed top-0 left-0 w-full z-40">
+      {/* Frosted glass background */}
+      <div className="backdrop-blur-xl bg-white/10 border-b border-white/10 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="flex items-center gap-3"
+          >
+            <img
+              src="/logo.png" // Replace with your actual logo asset
+              alt="Logo"
+              width={38}
+              height={38}
+              className="opacity-90"
+            />
+            <span className="text-white font-semibold text-lg tracking-wide hidden sm:block">
+              OPEN UG LABS
+            </span>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-gray-300 hover:text-white font-medium transition-colors px-4 py-2"
-            >
-              Home
-            </a>
+          <nav className="hidden md:flex items-center gap-8 text-white/90 font-medium">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="hover:text-white transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-            <a
-              href="#about"
-              className="text-gray-300 hover:text-white font-medium transition-colors px-4 py-2"
-            >
-              About
-            </a>
-
-            <a
-              href="#projects"
-              className="text-gray-300 hover:text-white font-medium transition-colors px-4 py-2"
-            >
-              Projects
-            </a>
-
-            <a
-              href="#community"
-              className="text-gray-300 hover:text-white font-medium transition-colors px-4 py-2"
-            >
-              Community
-            </a>
-
-            <a
-              href="#contact"
-              className="text-gray-300 hover:text-white font-medium transition-colors px-4 py-2"
-            >
-              Contact
-            </a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="#github"
-              className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors px-4 py-2"
-            >
-              <Github className="w-5 h-5" />
-              <span className="text-sm font-medium">GitHub</span>
-            </a>
-            <button className="bg-red-800 text-white px-6 py-2 font-medium hover:bg-red-700 transition-colors">
-              Get Started
-            </button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setOpen(true)}
+            className="md:hidden text-white text-2xl"
+          >
+            <FiMenu />
+          </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden border-t border-gray-800">
-            <div className="py-4 space-y-2">
-              <a
-                href="#home"
-                className="block text-gray-300 hover:text-white hover:bg-gray-900 font-medium px-4 py-3 transition-colors"
-              >
-                Home
-              </a>
-
-              <a
-                href="#about"
-                className="block text-gray-300 hover:text-white hover:bg-gray-900 font-medium px-4 py-3 transition-colors"
-              >
-                About
-              </a>
-
-              <a
-                href="#projects"
-                className="block text-gray-300 hover:text-white hover:bg-gray-900 font-medium px-4 py-3 transition-colors"
-              >
-                Projects
-              </a>
-
-              <a
-                href="#community"
-                className="block text-gray-300 hover:text-white hover:bg-gray-900 font-medium px-4 py-3 transition-colors"
-              >
-                Community
-              </a>
-
-              <a
-                href="#contact"
-                className="block text-gray-300 hover:text-white hover:bg-gray-900 font-medium px-4 py-3 transition-colors"
-              >
-                Contact
-              </a>
-
-              <div className="pt-4 border-t border-gray-800 space-y-3 px-4">
-                <a
-                  href="#github"
-                  className="flex items-center space-x-2 text-gray-300 hover:text-white py-2"
-                >
-                  <Github className="w-5 h-5" />
-                  <span className="font-medium">GitHub</span>
-                </a>
-                <button className="w-full bg-red-800 text-white px-6 py-3 font-medium hover:bg-red-700 transition-colors">
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 flex flex-col"
+          >
+            <div className="flex justify-end p-6">
+              <button
+                onClick={() => setOpen(false)}
+                className="text-white text-3xl"
+              >
+                <FiX />
+              </button>
+            </div>
+
+            <div className="flex flex-col items-center justify-center gap-8 mt-10 text-white text-2xl font-light">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="hover:text-blue-200 transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              <button className="mt-10 px-8 py-3 rounded-full bg-white/20 hover:bg-white/30 border border-white/20 transition-all">
+                Join Us
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}

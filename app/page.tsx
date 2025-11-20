@@ -1,17 +1,17 @@
 "use client";
 import AboutSection from "@/components/home/about";
-import HeroSection from "@/components/home/Hero";
-import ProjectTypesSection from "@/components/home/types";
+import Hero from "@/components/home/Hero";
+import ProjectsSection from "@/components/home/showcase";
+import WhatWeDoSection from "@/components/home/whatwedo";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <HeroSection />
+      <Hero />
       <AboutSection />
-      <ProjectTypesSection />
-      {/*<ProjectsShowcase />
-      <CommunitySection />*/}
+      <WhatWeDoSection />
+      <ProjectsSection />
     </>
   );
 };
