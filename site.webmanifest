@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Open UG Labs",
+  "short_name": "Open UG",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
