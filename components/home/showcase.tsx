@@ -23,7 +23,7 @@ const projects = [
     name: "Orbiton JS",
     description:
       "A lightweight minimalist JavaScript library for building browser UIs.",
-    link: "https://orbitonjs.com/", // if no site, keep placeholder link
+    link: "https://orbiton.js.org/", // if no site, keep placeholder link
     logo: "https://orbiton.js.org/b0fc9b8a348d80d150fe.svg",
   },
   {
