@@ -29,9 +29,8 @@ export default function AboutSection() {
 
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             Open UG Labs is a frontier research collective exploring the edges
-            of modern computing — from quantum-resistant cryptography and
-            virtualization technologies to intelligent systems and cloud-native
-            infrastructure.
+            of modern computing from cryptography and virtualization
+            technologies to intelligent systems and cloud-native infrastructure.
             <br />
             <br />
             We push technology forward through open research, engineering
@@ -57,7 +56,7 @@ export default function AboutSection() {
           <FeatureCard
             icon={<FiTrendingUp className="w-10 h-10 text-blue-300" />}
             title="Future-Focused"
-            description="We operate with long-term vision — preparing Africa for quantum computing, AI infrastructure, and emerging tech fields."
+            description="We operate with long-term vision preparing Africa for quantum computing, AI infrastructure, and emerging tech fields."
           />
         </div>
       </div>

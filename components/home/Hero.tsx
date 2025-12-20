@@ -59,7 +59,8 @@ export default function Hero() {
           transition={{ duration: 0.9 }}
           className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent"
         >
-          Building the Future of Open Research & Technology
+          We are a Software Research Lab building Open Technologies for East
+          Africa
         </motion.h1>
 
         <motion.p
@@ -68,9 +69,9 @@ export default function Hero() {
           transition={{ duration: 1.1, delay: 0.2 }}
           className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          OPEN UG LABS is pioneering next-generation technologies in Cloud,
-          Quantum, AI, Post-Quantum Cryptography, Virtualization, and Open
-          Infrastructure — all through open research and community empowerment.
+          Open Labs is pioneering next-generation technologies in Cloud,
+          Quantum, AI, Cryptography, Virtualization, and Open Infrastructure.
+          all through open research and community empowerment.
         </motion.p>
 
         {/* CTA Buttons */}

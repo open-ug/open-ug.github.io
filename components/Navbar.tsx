@@ -7,12 +7,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Mission", href: "#mission" },
-    { name: "Research", href: "#research" },
-    { name: "Future Tech", href: "#future-tech" },
-  ];
+  const navLinks = [{ name: "About", href: "#about" }];
 
   return (
     <header className="fixed top-0 left-0 w-full z-40">
