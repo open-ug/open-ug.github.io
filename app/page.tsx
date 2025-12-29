@@ -1,17 +1,17 @@
 "use client";
-import AboutSection from "@/components/home/about";
-import Hero from "@/components/home/Hero";
-import ProjectsSection from "@/components/home/showcase";
-import WhatWeDoSection from "@/components/home/whatwedo";
+import AboutSection from "@/app/about";
+import Hero from "@/app/hero";
+import ProjectsSection from "@/app/showcase";
 import React from "react";
+import RoadmapSection from "./conveyotstack";
 
 const page = () => {
   return (
     <>
       <Hero />
       <AboutSection />
-      <WhatWeDoSection />
       <ProjectsSection />
+      <RoadmapSection />
     </>
   );
 };

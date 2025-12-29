@@ -4,7 +4,7 @@ import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import "./global.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/home/footer";
+import Footer from "@/components/footer";
 
 export const metadata = {
   // Define your metadata here

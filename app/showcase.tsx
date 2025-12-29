@@ -33,13 +33,6 @@ const projects = [
     link: "https://cloudnative.open.ug/",
     logo: "https://cloudnative.open.ug/_next/static/media/cncg-icon-color.e918a21e.svg",
   },
-  {
-    name: "Quantum Uganda",
-    description:
-      "Building quantum computing research, collaboration, and education in Uganda and beyond.",
-    link: "https://quantumuganda.org/", // placeholder link
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGjH19smNNYrw/company-logo_200_200/B4DZjbo4mEH4AM-/0/1756031586569/quantum_uganda_logo?e=1765411200&v=beta&t=dRf1EKs1gxBmXhocW4Oi3BpPFwOevhdNBT74DQCyyeE",
-  },
 ];
 
 export default function ProjectsSection() {
