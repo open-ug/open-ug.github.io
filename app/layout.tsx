@@ -1,7 +1,3 @@
-import { Layout } from "nextra-theme-docs";
-import { Head } from "nextra/components";
-import { getPageMap } from "nextra/page-map";
-import "nextra-theme-docs/style.css";
 import "./global.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
@@ -29,8 +25,6 @@ export const metadata = {
   },
 };
 
-const navbar = <Navbar />;
-
 export default async function RootLayout({
   children,
 }: // Define your layout props here
@@ -46,35 +40,25 @@ export default async function RootLayout({
       // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
       suppressHydrationWarning
     >
-      <Head
-      // ... Your additional head options
-      >
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-        />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <meta name="apple-mobile-web-app-title" content="Open UG" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
+      <link
+        rel="icon"
+        type="image/png"
+        href="/favicon-96x96.png"
+        sizes="96x96"
+      />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <meta name="apple-mobile-web-app-title" content="Open UG" />
+      <link rel="manifest" href="/site.webmanifest" />
       <body>
-        <Layout
-          navbar={navbar}
-          pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
-          footer={<Footer />}
-          // ... Your additional layout options
-        >
-          {children}
-        </Layout>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );
