@@ -1,100 +1,44 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function Hero() {
-  // Floating snowflake particles
-  const particles = Array.from({ length: 12 });
-
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-black via-[#0b0f19] to-black text-white"
-    >
-      {/* Large central snowflake */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.2, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      >
-        <img
-          src="/logo.png" // your core brand icon
-          alt="Snowflake"
-          width={600}
-          height={600}
-          className="opacity-20"
-        />
-      </motion.div>
+    <section className="relative pt-24 pb-32 border-b border-slate-200 dark:border-slate-800 overflow-hidden">
+      {/* Micro Grid Background from globals.css */}
+      <div className="absolute inset-0 micro-grid opacity-20 pointer-events-none"></div>
 
-      {/* Floating particles */}
-      {particles.map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0.6, 1, 0.6],
-            x: [Math.sin(i) * 40, Math.sin(i * 2) * 120, Math.sin(i * 3) * 80],
-            y: [Math.cos(i) * 40, Math.cos(i * 2) * 120, Math.cos(i * 3) * 80],
-          }}
-          transition={{
-            duration: 8 + i * 0.4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute w-2 h-2 rounded-full bg-blue-300/60 shadow-[0_0_14px_3px_rgba(147,197,253,0.5)]"
-          style={{
-            top: `${30 + i * 5}%`,
-            left: `${40 + i * 3}%`,
-          }}
-        />
-      ))}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-12 gap-8 items-end relative z-10">
+        {/* Left Column: Heading */}
+        <div className="col-span-12 lg:col-span-8">
+          <div className="inline-block px-3 py-1 bg-primary text-slate-900 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+            Engineering Excellence
+          </div>
+          <h1 className="text-6xl md:text-8xl font-black leading-[0.95] tracking-tight uppercase mb-12">
+            Building the <br /> Foundations <br /> of{" "}
+            <span className="text-primary italic font-serif lowercase">
+              Tomorrow&apos;s
+            </span>{" "}
+            Computing.
+          </h1>
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent"
-        >
-          We are a Software Research Lab building Open Technologies for East
-          Africa
-        </motion.h1>
+        {/* Right Column: Description & Call to Action */}
+        <div className="col-span-12 lg:col-span-4 lg:pb-4">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 border-l-2 border-primary pl-6">
+            A premier software research laboratory dedicated to engineering
+            excellence and the advancement of core computing infrastructure.
+          </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.2 }}
-          className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-        >
-          Open Labs is pioneering next-generation technologies in Cloud,
-          Quantum, AI, Cryptography, Virtualization, and Open Infrastructure.
-          all through open research and community empowerment.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.4 }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="#about"
-            className="px-8 py-4 bg-white/20 backdrop-blur-xl border border-white/20 rounded-full text-white hover:bg-white/30 transition-all"
-          >
-            Learn More
-          </a>
-
-          <a
+          <Link
             href="#research"
-            className="px-8 py-4 rounded-full bg-blue-500/20 hover:bg-blue-500/30 transition-all border border-blue-400/30 backdrop-blur-xl"
+            className="inline-flex items-center gap-4 group cursor-pointer"
           >
-            Explore Research
-          </a>
-        </motion.div>
+            <span className="text-xs font-bold uppercase tracking-widest border-b-2 border-primary pb-1 text-slate-900 dark:text-slate-100">
+              Explore Our Research
+            </span>
+            <FiArrowRight className="text-primary text-xl group-hover:translate-x-2 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -1,1 +1,54 @@
+/* app/globals.css */
 @import "tailwindcss";
+
+/* Import your required plugins */
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+/* Enable class-based dark mode (triggered by the .dark class on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Colors */
+  --color-primary: #25c0f4;
+  --color-background-light: #f8fafb;
+  --color-background-dark: #0a0f12;
+
+  /* Fonts - mapped to the Next.js variable we set in layout.tsx */
+  --font-display: var(--font-inter), sans-serif;
+
+  /* Overriding standard border radii to 0px for the sharp "Swiss" look */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 9999px;
+}
+
+/* Custom Utilities */
+@utility micro-grid {
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  /* Nested dark mode variant */
+  .dark & {
+    background-image: radial-gradient(circle, #334155 1px, transparent 1px);
+  }
+}
+
+@utility swiss-border {
+  border-width: 1px;
+  border-color: rgba(15, 23, 42, 0.1);
+
+  /* Nested dark mode variant */
+  .dark & {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@utility text-justify-custom {
+  text-align: justify;
+  text-justify: inter-word;
+}

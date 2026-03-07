@@ -1,89 +1,62 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+import { FiBox, FiTerminal, FiLayers } from "react-icons/fi";
 
-import { motion } from "framer-motion";
-import { FiCpu, FiAperture, FiTrendingUp } from "react-icons/fi";
+export default function Mission() {
+  const missionPillars = [
+    {
+      title: "Foundation Software",
+      description:
+        "Developing stable, scalable low-level systems that form the backbone of distributed networks.",
+      icon: FiBox,
+    },
+    {
+      title: "Optimized Libraries",
+      description:
+        "High-performance computation modules optimized for silicon-level throughput and efficiency.",
+      icon: FiTerminal,
+    },
+    {
+      title: "Core Engines",
+      description:
+        "Building the next generation of software execution environments and virtual machines.",
+      icon: FiLayers,
+    },
+  ];
 
-export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="relative py-24 bg-gray-950 text-gray-200 overflow-hidden"
-    >
-      {/* Decorative glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 blur-[160px] rounded-full" />
-      </div>
+    <section className="py-32 border-b border-slate-200 dark:border-slate-800">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-12 gap-8 lg:gap-16">
+          {/* Left Column: Mission Statement */}
+          <div className="col-span-12 lg:col-span-4">
+            <h2 className="text-4xl font-black uppercase tracking-tighter mb-6">
+              Our Mission
+            </h2>
+            <p className="text-slate-500 font-medium dark:text-slate-400">
+              Focused on the critical layers of modern software engineering.
+            </p>
+          </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-blue-300 mb-6">
-            About Open UG Labs
-          </h2>
-
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            Open UG Labs is a frontier research collective exploring the edges
-            of modern computing from cryptography and virtualization
-            technologies to intelligent systems and cloud-native infrastructure.
-            <br />
-            <br />
-            We push technology forward through open research, engineering
-            excellence, community collaboration, and long-term scientific
-            vision.
-          </p>
-        </motion.div>
-
-        {/* Three Pillars */}
-        <div className="mt-20 grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-          <FeatureCard
-            icon={<FiAperture className="w-10 h-10 text-blue-300" />}
-            title="Deep Research"
-            description="We investigate advanced technologies including PQC, virtualization, distributed systems, and AI autonomy."
-          />
-
-          <FeatureCard
-            icon={<FiCpu className="w-10 h-10 text-blue-300" />}
-            title="Engineering Impact"
-            description="Our teams build real technologies like Conveyor CI and experimental TLS protocols for next-gen security."
-          />
-
-          <FeatureCard
-            icon={<FiTrendingUp className="w-10 h-10 text-blue-300" />}
-            title="Future-Focused"
-            description="We operate with long-term vision preparing Africa for quantum computing, AI infrastructure, and emerging tech fields."
-          />
+          {/* Right Column: Mission Grid (Mapped) */}
+          <div className="col-span-12 lg:col-span-8 grid md:grid-cols-3 gap-1 px-1 py-1 bg-slate-200 dark:bg-slate-800">
+            {missionPillars.map((pillar, index) => (
+              <div
+                key={index}
+                className="bg-background-light dark:bg-background-dark p-8 flex flex-col gap-12 transition-colors hover:bg-white dark:hover:bg-slate-900/80"
+              >
+                <pillar.icon className="text-4xl text-primary stroke-[1.5]" />
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest mb-4 text-slate-900 dark:text-slate-100">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: any;
-  title: string;
-  description: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="p-8 bg-gray-900/40 backdrop-blur-md border border-gray-800 rounded-2xl hover:bg-gray-900/60 transition-all"
-    >
-      <div className="flex justify-center mb-5">{icon}</div>
-      <h3 className="text-2xl font-semibold mb-3 text-gray-100">{title}</h3>
-      <p className="text-gray-400 text-base leading-relaxed">{description}</p>
-    </motion.div>
   );
 }
