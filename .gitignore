@@ -35,3 +35,5 @@ yarn-error.log*
 
 # Build artifacts
 dist/
+
+next-env.d.ts

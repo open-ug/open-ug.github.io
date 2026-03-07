@@ -18,7 +18,7 @@ export default function Community() {
             {/* Stat Accent Box */}
             <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-primary p-8 hidden md:flex flex-col justify-end shadow-2xl dark:shadow-none">
               <span className="text-3xl font-black text-slate-900 uppercase tracking-tighter">
-                120+
+                20+
               </span>
               <span className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">
                 Active Mentors
