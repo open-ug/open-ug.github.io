@@ -43,7 +43,7 @@ export default function Community() {
             </p>
 
             <div className="grid grid-cols-2 gap-8 mb-12">
-              <div>
+              {/* <div>
                 <h5 className="text-xs font-bold uppercase tracking-widest mb-2 text-slate-900 dark:text-slate-100">
                   Fellowships
                 </h5>
@@ -51,13 +51,13 @@ export default function Community() {
                   Fully-funded research positions for PhD candidates and
                   post-docs.
                 </p>
-              </div>
+              </div> */}
               <div>
                 <h5 className="text-xs font-bold uppercase tracking-widest mb-2 text-slate-900 dark:text-slate-100">
                   OSS Grants
                 </h5>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Financial and engineering support for critical low-level
+                  Infrastructure and engineering support for critical low-level
                   libraries.
                 </p>
               </div>
