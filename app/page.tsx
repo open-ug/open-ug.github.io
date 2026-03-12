@@ -7,6 +7,7 @@ import Metrics from "./metrics";
 import RecentPapers from "./papers";
 import Community from "./community";
 import { CTASection } from "./cta";
+import PartnersSection from "./partners";
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
       <RecentPapers />
       <RoadmapSection />
       <Community />
+      <PartnersSection />
       <CTASection />
     </>
   );
