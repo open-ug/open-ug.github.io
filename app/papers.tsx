@@ -2,32 +2,8 @@ import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function RecentPapers() {
-  const papers = [
-    {
-      date: "2024.10.12",
-      title: "Memory-Safe Concurrency in Systems Languages",
-      description:
-        "Analysis of ownership models in low-latency environments and their impact on throughput.",
-      category: "Systems",
-      link: "#",
-    },
-    {
-      date: "2024.08.24",
-      title: "Distributed Consensus via Optimized Graph Topologies",
-      description:
-        "Novel approaches to minimizing message passing in multi-node state machine replication.",
-      category: "Networking",
-      link: "#",
-    },
-    {
-      date: "2024.06.05",
-      title: "Latency Bounds in Modern JIT Compilers",
-      description:
-        "A comparative study on optimization bailouts and their effect on real-time execution.",
-      category: "Compilers",
-      link: "#",
-    },
-  ];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const papers: any[] = [];
 
   return (
     <section className="py-32 bg-slate-50 dark:bg-slate-900/30 border-b border-slate-200 dark:border-slate-800">
