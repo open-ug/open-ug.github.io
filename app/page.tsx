@@ -8,11 +8,13 @@ import RecentPapers from "./papers";
 import Community from "./community";
 import { CTASection } from "./cta";
 import PartnersSection from "./partners";
+import Mesh from "./mesh";
 
 const page = () => {
   return (
     <>
       <Hero />
+      <Mesh />
       <AboutSection />
       <Metrics />
       <RecentPapers />
