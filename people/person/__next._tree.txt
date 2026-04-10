@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/6676cbf0241f7158.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap","style"]
+:HL["/logo.png","image"]
+:HL["https://lh3.googleusercontent.com/aida-public/AB6AXuARavG7gHrqfoDasy3f6yuzk5jhzkiC13lVWY3Tc2gIU1_yBFtD7j4u7c8GBvREqI1dcXZW0zQ8y0RhKMyCkpjlvS5SUrfd3VkaoZ2XFYdO_u_Xcq6I-kisnW-5MqV7-p_Lvj3B2TncoFn0l86TNaJfAzzby-VWNEvmig_Xg_Rnyh2JLBqKkSMIBg4J4zsS-xF7ZrxUOkUQ8TEyJ1HxX3-BnvvBLwCuaHWy0hcZLvwADSWaI4P0xk0QD_QsYbTzYzvTmFtPwGHlMEc","image"]
+0:{"buildId":"1VXPCM0z6nmsyBpXGzrvP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"people","paramType":null,"paramKey":"people","hasRuntimePrefetch":false,"slots":{"children":{"name":"person","paramType":null,"paramKey":"person","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
