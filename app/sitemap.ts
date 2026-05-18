@@ -5,9 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: new Date().toISOString(),
       changeFrequency: "monthly",
       priority: 1,
+      images: [`${BASE_URL}/logo.png`],
     },
     {
       url: `${BASE_URL}/about/charter`,
