@@ -52,29 +52,14 @@ export default function Footer() {
             </h6>
             <ul className="flex flex-col gap-3 text-sm text-slate-500 font-medium">
               <li>
-                <Link className="hover:text-primary" href="#">
-                  Research Papers
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-primary" href="#">
-                  Labs & Infrastructure
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-primary" href="#">
-                  Toolsets
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-primary" href="#">
-                  Whitepapers
+                <Link className="hover:text-primary" href="/about/charter">
+                  Charter
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Links: Community */}
+          {/* Links: Community 
           <div className="col-span-6 md:col-span-2">
             <h6 className="text-[10px] font-bold uppercase tracking-widest mb-6">
               Community
@@ -101,7 +86,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div>*/}
 
           {/* Newsletter Subscription */}
           <div className="col-span-12 md:col-span-4 flex flex-col items-start md:items-end">
