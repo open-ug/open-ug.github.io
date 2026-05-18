@@ -1,12 +1,7 @@
 import Link from "next/link";
 
 export default function Navbar() {
-  const navLinks = [
-    { name: "Research", href: "/research" },
-    { name: "Labs", href: "/labs" },
-    { name: "Community", href: "/community" },
-    { name: "About", href: "/about" },
-  ];
+  const navLinks = [{ name: "Charter", href: "/about/charter" }];
 
   return (
     <header className="sticky top-0 z-50 bg-background-light/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
