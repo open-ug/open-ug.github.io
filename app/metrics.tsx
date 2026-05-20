@@ -1,6 +1,6 @@
 export default function Metrics() {
   const metricsData = [
-    { value: "24,000+", line1: "Software", line2: "Installs" },
+    { value: "32,000+", line1: "Software", line2: "Installs" },
     { value: "800+", line1: "Dependent", line2: "Projects" },
     { value: "20+", line1: "Human", line2: "Participants" },
     { value: "6", line1: "Core Software", line2: "Projects" },
