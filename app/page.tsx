@@ -5,6 +5,7 @@ import Metrics from "./metrics";
 import Community from "./community";
 import { CTASection } from "./cta";
 import Mesh from "./mesh";
+import ProjectsSection from "./showcase";
 
 const page = () => {
   return (
@@ -12,6 +13,7 @@ const page = () => {
       <Hero />
       <Mesh />
       <AboutSection />
+      <ProjectsSection />
       <Metrics />
       <Community />
       <CTASection />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -8,7 +9,13 @@ export default function Footer() {
           {/* Brand & Description */}
           <div className="col-span-12 md:col-span-4">
             <div className="flex items-center gap-3 mb-8">
-              <img alt="Logo" className="h-6 w-auto" src="/logo.png" />
+              <Image
+                alt="Open UG Labs logo"
+                className="h-6 w-auto"
+                src="/logo.png"
+                width={24}
+                height={24}
+              />
               <span className="text-lg font-black uppercase tracking-tighter">
                 Open UG Labs
               </span>
@@ -51,6 +58,11 @@ export default function Footer() {
               Explore
             </h6>
             <ul className="flex flex-col gap-3 text-sm text-slate-500 font-medium">
+              <li>
+                <Link className="hover:text-primary" href="/projects">
+                  Projects
+                </Link>
+              </li>
               <li>
                 <Link className="hover:text-primary" href="/about/charter">
                   Charter

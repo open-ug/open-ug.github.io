@@ -17,10 +17,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/labs`,
+      url: `${BASE_URL}/projects`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.5,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/projects/makerere-cs-website`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/projects/makerere-cs-website/apply`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
     },
   ];
 }

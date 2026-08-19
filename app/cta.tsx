@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function CTASection() {
   return (
@@ -29,12 +30,18 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-10">
-            <button className="bg-primary text-slate-900 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-slate-900 transition-colors cursor-pointer w-full sm:w-auto">
-              Apply for Access
-            </button>
-            <button className="bg-transparent border border-slate-700 dark:border-slate-300 text-white dark:text-slate-900 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary transition-colors cursor-pointer w-full sm:w-auto">
-              View GitHub
-            </button>
+            <Link
+              href="/projects"
+              className="bg-primary text-slate-900 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-slate-900 transition-colors cursor-pointer w-full sm:w-auto"
+            >
+              Explore projects
+            </Link>
+            <Link
+              href="/about/charter"
+              className="bg-transparent border border-slate-700 dark:border-slate-300 text-white dark:text-slate-900 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary transition-colors cursor-pointer w-full sm:w-auto"
+            >
+              Read our charter
+            </Link>
           </div>
         </motion.div>
       </div>

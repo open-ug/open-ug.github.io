@@ -1,112 +1,63 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
-
-import { motion } from "framer-motion";
-import { FiBox } from "react-icons/fi";
-
-const projects = [
-  {
-    name: "Conveyor CI",
-    description:
-      "Conveyor CI is an open-source lightweight engine for building CI/CD systems with ease.",
-    link: "https://conveyor.open.ug/",
-    logo: "https://conveyor.open.ug/logos/icon.svg", // put your real logo path, or leave empty
-  },
-  {
-    name: "Post Quantum TLS",
-    description:
-      "An experimental TLS protocol variant designed to support post-quantum cryptography.",
-    link: "https://github.com/open-ug/pqtls",
-    logo: null,
-  },
-  {
-    name: "Orbiton JS",
-    description:
-      "A lightweight minimalist JavaScript library for building browser UIs.",
-    link: "https://orbiton.js.org/", // if no site, keep placeholder link
-    logo: "https://orbiton.js.org/b0fc9b8a348d80d150fe.svg",
-  },
-  {
-    name: "Cloud Native Kampala",
-    description:
-      "A vibrant cloud native community in Kampala, Uganda. Meet, learn, share, and grow together.",
-    link: "https://cloudnative.open.ug/",
-    logo: "https://cloudnative.open.ug/_next/static/media/cncg-icon-color.e918a21e.svg",
-  },
-];
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { projects } from "@/lib/projects";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-28 bg-gray-950 text-gray-200">
-      {/* lighting background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-1/3 top-10 w-[450px] h-[450px] bg-blue-700/10 blur-[160px] rounded-full" />
-        <div className="absolute right-1/4 bottom-20 w-[550px] h-[550px] bg-blue-400/5 blur-[200px] rounded-full" />
-      </div>
+    <section id="projects" className="border-b border-slate-200 bg-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-sky-600">
+              Selected work
+            </p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+              Projects at the lab
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-sky-600"
+          >
+            Explore all projects <ArrowRight size={17} aria-hidden="true" />
+          </Link>
+        </div>
 
-      <div className="relative container mx-auto px-6 z-10">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-300">
-            Projects & Communities
-          </h2>
-          <p className="mt-6 text-lg text-gray-300 leading-relaxed">
-            We build open-source tools, support engineering communities, and
-            accelerate frontier innovation across East Africa.
-          </p>
-        </motion.div>
-
-        {/* Grid */}
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {projects.map((item, index) => (
-            <ProjectCard key={index} item={item} />
+        <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <Link
+              key={project.name}
+              href={project.href}
+              target={project.external ? "_blank" : undefined}
+              rel={project.external ? "noreferrer" : undefined}
+              className="group flex min-h-72 flex-col bg-white p-8 transition-colors hover:bg-slate-50 md:p-10"
+            >
+              <div className="mb-12 flex items-start justify-between">
+                <span className="font-mono text-xs text-slate-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {project.external ? (
+                  <ArrowUpRight className="text-slate-400 transition group-hover:text-sky-600" size={20} />
+                ) : (
+                  <ArrowRight className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-sky-600" size={20} />
+                )}
+              </div>
+              <div className="mt-auto">
+                <div className="mb-4 flex flex-wrap gap-2 text-xs font-medium">
+                  <span className="bg-slate-100 px-2.5 py-1 text-slate-600">{project.category}</span>
+                  <span className={project.status === "Recruiting" ? "bg-sky-100 px-2.5 py-1 text-sky-800" : "bg-slate-100 px-2.5 py-1 text-slate-600"}>
+                    {project.status}
+                  </span>
+                </div>
+                <h3 className="mb-3 text-2xl font-semibold tracking-tight text-slate-950">
+                  {project.name}
+                </h3>
+                <p className="max-w-xl text-sm leading-6 text-slate-600">{project.description}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function ProjectCard({ item }: { item: any }) {
-  return (
-    <motion.a
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="group block p-8 bg-gray-900/40 backdrop-blur-lg border border-gray-800 rounded-2xl hover:bg-gray-900/60 transition-all cursor-pointer"
-    >
-      {/* Logo or placeholder */}
-      <div className="flex justify-center mb-5">
-        {item.logo ? (
-          <img
-            src={item.logo}
-            alt={item.name}
-            width={70}
-            height={70}
-            className="opacity-90 group-hover:opacity-100 transition"
-          />
-        ) : (
-          <FiBox className="w-12 h-12 text-blue-300 opacity-80" />
-        )}
-      </div>
-
-      <h3 className="text-xl font-semibold text-gray-100 text-center mb-3">
-        {item.name}
-      </h3>
-
-      <p className="text-gray-400 text-center text-sm leading-relaxed">
-        {item.description}
-      </p>
-    </motion.a>
   );
 }
