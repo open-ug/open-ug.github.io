@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "Maintaining and improving the digital home of Makerere University's Department of Computer Science.",
     href: "/projects/makerere-cs-website",
     category: "Digital infrastructure",
-    status: "Recruiting",
+    status: "Active",
   },
   {
     name: "Conveyor CI",
@@ -26,10 +26,19 @@ export const projects: Project[] = [
     external: true,
   },
   {
-    name: "Post Quantum TLS",
+    name: "reactjs-media",
     description:
-      "An experimental TLS protocol variant designed to support post-quantum cryptography.",
-    href: "https://github.com/open-ug/pqtls",
+      "A React library for building media-rich web applications with support for audio, video and WebRTC.",
+    href: "https://github.com/jim-junior/reactjs-media",
+    category: "Web development",
+    status: "Active",
+    external: true,
+  },
+  {
+    name: "vm-alloc",
+    description:
+      "A Rust based CLI tool for spinning up virtual machines using libvirt, QEMU, Firecracker and KVM using cloud images.",
+    href: "https://github.com/open-ug/vm-alloc",
     category: "Applied research",
     status: "Research",
     external: true,
