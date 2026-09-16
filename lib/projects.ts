@@ -26,6 +26,15 @@ export const projects: Project[] = [
     external: true,
   },
   {
+    name: "Orbiton JS",
+    description:
+      "A lightweight, minimalist JavaScript library for building browser user interfaces.",
+    href: "https://orbiton.js.org/",
+    category: "Open-source software",
+    status: "Active",
+    external: true,
+  },
+  {
     name: "reactjs-media",
     description:
       "A React library for building media-rich web applications with support for audio, video and WebRTC.",
@@ -44,12 +53,20 @@ export const projects: Project[] = [
     external: true,
   },
   {
-    name: "Orbiton JS",
+    name: "Mentant",
+    description: "OCaml based Machine Learning Library",
+    href: "https://github.com/open-ug/vm-alloc",
+    category: "Applied research",
+    status: "Research",
+    external: true,
+  },
+  {
+    name: "Git APT",
     description:
-      "A lightweight, minimalist JavaScript library for building browser user interfaces.",
-    href: "https://orbiton.js.org/",
-    category: "Open-source software",
-    status: "Active",
+      "A Github Pages based APT repository for hosting and distributing Debian packages.",
+    href: "https://github.com/open-ug/apt",
+    category: "Applied research",
+    status: "Research",
     external: true,
   },
 ];
