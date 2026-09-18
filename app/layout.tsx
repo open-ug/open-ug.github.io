@@ -13,14 +13,15 @@ const inter = Inter({
 
 // Define your global SEO and meta tags
 export const metadata: Metadata = {
-  title: "Open UG Labs | Foundation Software Research",
+  title: "Open UG Labs | Makerere University Undergraduate Lab",
   description:
-    "A premier software research laboratory dedicated to engineering excellence and the advancement of core computing infrastructure.",
+    "An undergraduate computing lab at Makerere University's College of Computing and Information Sciences (CoCIS).",
   openGraph: {
-    title: "Open UG",
-    description: "Open Source for Africa",
+    title: "Open UG Labs",
+    description:
+      "An undergraduate computing lab at Makerere University's College of Computing and Information Sciences (CoCIS).",
     url: "https://openug.org",
-    siteName: "Open UG",
+    siteName: "Open UG Labs",
     images: [
       {
         url: "/favicon-96x96.png",

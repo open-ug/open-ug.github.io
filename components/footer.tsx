@@ -21,8 +21,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-slate-500 max-w-xs mb-8">
-              The standard for software foundation research. Built for
-              engineers, by engineers.
+              An undergraduate computing lab at Makerere University&apos;s College
+              of Computing and Information Sciences (CoCIS).
             </p>
             <div className="flex gap-4">
               <Link

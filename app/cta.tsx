@@ -24,9 +24,9 @@ export function CTASection() {
           </h2>
 
           <p className="text-slate-400 dark:text-slate-500 max-w-xl mx-auto mb-10 text-sm leading-relaxed relative z-10">
-            Join the Open UG Labs community to collaborate on the Conveyor
-            Stack, access research grants, and help shape the future of
-            vendor-neutral infrastructure.
+            Join fellow Makerere University undergraduates to contribute to
+            open-source projects, learn through mentorship, and develop practical
+            engineering and research experience.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-10">

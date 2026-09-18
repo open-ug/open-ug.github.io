@@ -32,7 +32,8 @@ export default function Mission() {
               Our Mission
             </h2>
             <p className="text-slate-500 font-medium dark:text-slate-400">
-              Focused on the critical layers of modern software engineering.
+              Helping Makerere undergraduates grow through practical software
+              engineering, research, and peer learning.
             </p>
           </div>
 

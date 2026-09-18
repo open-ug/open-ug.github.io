@@ -10,7 +10,7 @@ export default function Community() {
               <img
                 alt="Mentorship session"
                 className="w-full h-full object-cover grayscale contrast-125 mix-blend-multiply dark:mix-blend-luminosity dark:opacity-80"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8IhZUp8QdHReeKLhrJLC22cZkGux73GV9mW0BR-4fG7Z8buEPt5Wd4awrNMjfs5eMfzMsEolfe_FSZrU0SqHGgjcCHw1uockPpg9Fp4C3HxImgFfMQTngK1b4imUiktHH2vV-3kHnoW57R1j7yXYw3q-p8o2_vk9m3-upxwGL4pYDP9w0sE_HUE0ngcaZ75MGlHUONP_wgvpIZvnQw38RmbwdJNeLMI_esOuyqhRZ8hxJdSfXY17ca_WczwErZMwjO9_JoCu5zD0"
+                src="/images/human.png"
               />
               <div className="absolute inset-0 bg-primary/10"></div>
             </div>
@@ -18,10 +18,10 @@ export default function Community() {
             {/* Stat Accent Box */}
             <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-primary p-8 hidden md:flex flex-col justify-end shadow-2xl dark:shadow-none">
               <span className="text-3xl font-black text-slate-900 uppercase tracking-tighter">
-                20+
+                Makerere
               </span>
               <span className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">
-                Active Mentors
+                Undergraduate Lab
               </span>
             </div>
           </div>
@@ -35,36 +35,15 @@ export default function Community() {
               Investing in the <br /> Human Protocol.
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 text-justify-custom">
-              We believe the future of software infrastructure is built on open
-              collaboration. Our lab actively sponsors Open Source Software
-              (OSS) projects and provides rigorous mentorship for graduate
-              students and developers pushing the boundaries of what is possible
-              in core computing.
+              Open UG brings together undergraduate students at Makerere
+              University&apos;s College of Computing and Information Sciences. The
+              lab gives students space to learn from peers and mentors, build
+              open-source software, and explore foundational computing through
+              practical projects.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              {/* <div>
-                <h5 className="text-xs font-bold uppercase tracking-widest mb-2 text-slate-900 dark:text-slate-100">
-                  Fellowships
-                </h5>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Fully-funded research positions for PhD candidates and
-                  post-docs.
-                </p>
-              </div> */}
-              <div>
-                <h5 className="text-xs font-bold uppercase tracking-widest mb-2 text-slate-900 dark:text-slate-100">
-                  OSS Grants
-                </h5>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Infrastructure and engineering support for critical low-level
-                  libraries.
-                </p>
-              </div>
-            </div>
-
             <button className="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary dark:hover:bg-primary hover:text-slate-900 transition-all cursor-pointer">
-              Join the Community
+              Join the Lab
             </button>
           </div>
         </div>

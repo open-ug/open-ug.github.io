@@ -5,7 +5,7 @@ import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects | Open UG Labs",
-  description: "Explore software, research, and digital infrastructure projects at Open UG Labs.",
+  description: "Explore projects built by undergraduate students at Open UG Labs, Makerere University.",
 };
 
 export default function ProjectsPage() {
@@ -18,8 +18,9 @@ export default function ProjectsPage() {
             Projects that turn ideas into useful infrastructure.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
-            Open UG Labs develops open-source software, conducts applied research,
-            and partners with institutions on digital systems that matter.
+            Undergraduate students at Open UG Labs build open-source software,
+            explore applied research, and contribute to digital systems that matter
+            at Makerere University and beyond.
           </p>
         </div>
       </section>
