@@ -1,6 +1,7 @@
 import AuthShell from "../AuthShell";
 import { requestPasswordReset } from "../actions";
 import { buttonClass, inputClass, labelClass } from "@/lib/forms";
+import SubmitButton from "@/components/SubmitButton";
 
 export default async function ForgotPasswordPage({
   searchParams,
@@ -29,7 +30,9 @@ export default async function ForgotPasswordPage({
               required
             />
           </label>
-          <button className={`${buttonClass} w-full`}>Send reset link</button>
+          <SubmitButton className={`${buttonClass} w-full`} pendingLabel="Sending reset link…">
+            Send reset link
+          </SubmitButton>
         </form>
       )}
     </AuthShell>

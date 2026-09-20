@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { requireUser } from "@/lib/auth";
 import { signOutFromDashboard } from "./actions";
+import SubmitButton from "@/components/SubmitButton";
 
 export default async function DashboardLayout({
   children,
@@ -20,9 +21,12 @@ export default async function DashboardLayout({
             </Link>
           )}
           <form action={signOutFromDashboard} className="ml-auto">
-            <button className="text-slate-500 hover:text-slate-950">
+            <SubmitButton
+              className="inline-flex items-center text-slate-500 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-60"
+              pendingLabel="Signing out…"
+            >
               Sign out
-            </button>
+            </SubmitButton>
           </form>
         </div>
         {children}

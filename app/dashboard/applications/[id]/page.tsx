@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth";
 import { buttonClass } from "@/lib/forms";
 import StatusBadge from "@/components/StatusBadge";
+import SubmitButton from "@/components/SubmitButton";
 import ApplicationQuestion from "@/components/ApplicationQuestion";
 import { withdrawApplication } from "@/app/programs/actions";
 
@@ -94,7 +95,9 @@ export default async function ApplicationPage({
       ) && (
         <form action={withdrawApplication} className="mt-6 text-right">
           <input type="hidden" name="application_id" value={application.id} />
-          <button className={buttonClass}>Withdraw application</button>
+          <SubmitButton className={buttonClass} pendingLabel="Withdrawing…">
+            Withdraw application
+          </SubmitButton>
         </form>
       )}
     </div>

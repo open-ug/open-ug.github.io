@@ -1,23 +1,37 @@
 "use client";
 
 import { LoaderCircle } from "lucide-react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { useFormStatus } from "react-dom";
 
 export default function SubmitButton({
   children,
   pendingLabel,
   className,
-}: {
-  children: React.ReactNode;
+  disabled,
+  name,
+  value,
+  ...props
+}: Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+  children: ReactNode;
   pendingLabel: string;
-  className: string;
 }) {
-  const { pending } = useFormStatus();
+  const { data, pending } = useFormStatus();
+  const isInvokedAction = !name || data?.get(name) === value;
+  const showPending = pending && isInvokedAction;
 
   return (
-    <button type="submit" className={className} disabled={pending} aria-live="polite">
-      {pending && <LoaderCircle className="mr-2 size-4 animate-spin" aria-hidden="true" />}
-      {pending ? pendingLabel : children}
+    <button
+      {...props}
+      type="submit"
+      className={className}
+      disabled={disabled || pending}
+      name={name}
+      value={value}
+      aria-live="polite"
+    >
+      {showPending && <LoaderCircle className="mr-2 size-4 animate-spin" aria-hidden="true" />}
+      {showPending ? pendingLabel : children}
     </button>
   );
 }

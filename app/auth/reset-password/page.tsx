@@ -1,6 +1,7 @@
 import AuthShell from "../AuthShell";
 import { updatePassword } from "../actions";
 import { buttonClass, inputClass, labelClass } from "@/lib/forms";
+import SubmitButton from "@/components/SubmitButton";
 
 export default async function ResetPasswordPage({
   searchParams,
@@ -44,7 +45,9 @@ export default async function ResetPasswordPage({
             required
           />
         </label>
-        <button className={`${buttonClass} w-full`}>Update password</button>
+        <SubmitButton className={`${buttonClass} w-full`} pendingLabel="Updating password…">
+          Update password
+        </SubmitButton>
       </form>
     </AuthShell>
   );

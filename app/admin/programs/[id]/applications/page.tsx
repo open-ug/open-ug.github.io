@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireStaff } from "@/lib/auth";
-import { inputClass } from "@/lib/forms";
 import StatusBadge from "@/components/StatusBadge";
 import type { Json } from "@/lib/supabase/database.types";
+import ApplicationFilters from "./ApplicationFilters";
 
 function snapshot(value: Json | null) {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -58,34 +58,7 @@ export default async function ApplicationsList({
         ← {program.title}
       </Link>
       <h1 className="mt-3 text-3xl font-semibold">Applications</h1>
-      <form className="mt-6 grid gap-3 border border-slate-200 bg-white p-4 sm:grid-cols-[1fr_220px_auto]">
-        <input
-          className={inputClass}
-          name="q"
-          defaultValue={filters.q}
-          placeholder="Search applicant or identifier"
-        />
-        <select
-          className={inputClass}
-          name="status"
-          defaultValue={filters.status}
-        >
-          <option value="">All statuses</option>
-          {[
-            "submitted",
-            "under_review",
-            "shortlisted",
-            "accepted",
-            "rejected",
-            "withdrawn",
-          ].map((status) => (
-            <option key={status}>{status}</option>
-          ))}
-        </select>
-        <button className="mt-2 bg-slate-950 px-5 text-sm font-semibold text-white">
-          Filter
-        </button>
-      </form>
+      <ApplicationFilters query={filters.q} status={filters.status} />
       <div className="mt-6 overflow-x-auto border border-slate-200 bg-white">
         <table className="w-full min-w-[920px] text-left text-sm">
           <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">

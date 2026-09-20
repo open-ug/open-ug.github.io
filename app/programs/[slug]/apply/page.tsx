@@ -3,6 +3,7 @@ import Link from "next/link";
 import { requireUser } from "@/lib/auth";
 import { buttonClass, secondaryButtonClass } from "@/lib/forms";
 import ApplicationQuestion from "@/components/ApplicationQuestion";
+import SubmitButton from "@/components/SubmitButton";
 import { saveApplication, startApplication } from "../../actions";
 
 export default async function ApplyPage({
@@ -56,7 +57,9 @@ export default async function ApplyPage({
             </p>
             <form action={startApplication} className="mt-6">
               <input type="hidden" name="program_slug" value={slug} />
-              <button className={buttonClass}>Create application draft</button>
+              <SubmitButton className={buttonClass} pendingLabel="Creating draft…">
+                Create application draft
+              </SubmitButton>
             </form>
           </div>
         </div>
@@ -119,21 +122,23 @@ export default async function ApplyPage({
             </p>
           )}
           <div className="flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-6">
-            <button
+            <SubmitButton
               className={secondaryButtonClass}
               name="intent"
               value="draft"
+              pendingLabel="Saving draft…"
             >
               Save draft
-            </button>
-            <button
+            </SubmitButton>
+            <SubmitButton
               className={buttonClass}
               name="intent"
               value="submit"
               disabled={!isOpen}
+              pendingLabel="Submitting…"
             >
               Submit application
-            </button>
+            </SubmitButton>
           </div>
           <p className="text-xs leading-5 text-slate-500">
             By submitting, you confirm the information is accurate. Applying to

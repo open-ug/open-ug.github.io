@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Community() {
   return (
     <section className="py-32 border-t border-slate-200 dark:border-slate-800">
@@ -42,9 +44,12 @@ export default function Community() {
               through practical projects.
             </p>
 
-            <button className="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary dark:hover:bg-primary hover:text-slate-900 transition-all cursor-pointer">
+            <Link
+              href="/programs"
+              className="inline-flex bg-slate-900 px-10 py-4 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-primary hover:text-slate-900 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-primary"
+            >
               Join the Lab
-            </button>
+            </Link>
           </div>
         </div>
       </div>

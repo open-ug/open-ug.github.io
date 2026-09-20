@@ -1,6 +1,7 @@
 import { requireUser } from "@/lib/auth";
 import { buttonClass, inputClass, labelClass } from "@/lib/forms";
 import { updateProfile } from "../actions";
+import SubmitButton from "@/components/SubmitButton";
 
 export default async function ProfilePage({
   searchParams,
@@ -149,7 +150,9 @@ export default async function ProfilePage({
             defaultValue={profile.bio ?? ""}
           />
         </label>
-        <button className={buttonClass}>Save profile</button>
+        <SubmitButton className={buttonClass} pendingLabel="Saving profile…">
+          Save profile
+        </SubmitButton>
       </form>
     </div>
   );

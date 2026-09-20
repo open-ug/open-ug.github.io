@@ -4,6 +4,7 @@ import AuthNav from "./AuthNav";
 
 export default function Navbar() {
   const navLinks = [
+    { name: "Programs", href: "/programs" },
     { name: "Projects", href: "/projects" },
     { name: "Charter", href: "/about/charter" },
   ];
@@ -30,7 +31,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -44,6 +45,12 @@ export default function Navbar() {
 
         {/* Action Button */}
         <div className="flex items-center gap-6">
+          <Link
+            href="/programs"
+            className="text-[10px] font-bold uppercase tracking-widest hover:text-sky-600 md:hidden"
+          >
+            Programs
+          </Link>
           <AuthNav />
           <Link
             href="/projects"

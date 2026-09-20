@@ -6,6 +6,7 @@ import StatusBadge from "@/components/StatusBadge";
 import { saveReview } from "../../actions";
 import type { Json } from "@/lib/supabase/database.types";
 import ReviewerAssignments from "./ReviewerAssignments";
+import SubmitButton from "@/components/SubmitButton";
 
 function object(value: Json | null) {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -200,7 +201,9 @@ export default async function ReviewApplication({
                 </select>
               </label>
             )}
-            <button className={`${buttonClass} w-full`}>Save review</button>
+            <SubmitButton className={`${buttonClass} w-full`} pendingLabel="Saving review…">
+              Save review
+            </SubmitButton>
             <p className="text-xs leading-5 text-slate-500">
               Review notes are visible only to assigned reviewers and
               administrators.

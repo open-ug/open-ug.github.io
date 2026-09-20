@@ -1,6 +1,7 @@
 import { requireAdmin } from "@/lib/auth";
 import { buttonClass, inputClass } from "@/lib/forms";
 import { assignReviewer, removeReviewer } from "../../actions";
+import SubmitButton from "@/components/SubmitButton";
 
 export default async function ReviewerAssignments({
   applicationId,
@@ -44,7 +45,12 @@ export default async function ReviewerAssignments({
               {profileMap.get(assignment.reviewer_id)?.full_name ??
                 assignment.reviewer_id}
             </span>
-            <button className="font-semibold text-red-700">Remove</button>
+            <SubmitButton
+              className="inline-flex items-center font-semibold text-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+              pendingLabel="Removing…"
+            >
+              Remove
+            </SubmitButton>
           </form>
         ))}
         {!assignments?.length && (
@@ -74,7 +80,9 @@ export default async function ReviewerAssignments({
               </option>
             ))}
         </select>
-        <button className={`${buttonClass} w-full`}>Assign reviewer</button>
+        <SubmitButton className={`${buttonClass} w-full`} pendingLabel="Assigning reviewer…">
+          Assign reviewer
+        </SubmitButton>
       </form>
     </section>
   );

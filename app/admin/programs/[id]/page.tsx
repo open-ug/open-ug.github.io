@@ -9,6 +9,7 @@ import {
 } from "@/lib/forms";
 import { deleteQuestion, saveProgram, saveQuestion } from "../../actions";
 import type { Json } from "@/lib/supabase/database.types";
+import SubmitButton from "@/components/SubmitButton";
 
 const statuses = [
   "draft",
@@ -209,9 +210,12 @@ export default async function ProgramEditor({
               />
             </label>
           </div>
-          <button className={buttonClass}>
+          <SubmitButton
+            className={buttonClass}
+            pendingLabel={isNew ? "Creating program…" : "Saving program…"}
+          >
             {isNew ? "Create program" : "Save program"}
-          </button>
+          </SubmitButton>
         </form>
       ) : (
         <p className="mt-6 text-sm text-slate-600">
@@ -312,13 +316,23 @@ export default async function ProgramEditor({
                       />{" "}
                       Required
                     </label>
-                    <button className={buttonClass}>Save question</button>
-                    <button
+                    <SubmitButton
+                      className={buttonClass}
+                      name="question_action"
+                      value="save"
+                      pendingLabel="Saving question…"
+                    >
+                      Save question
+                    </SubmitButton>
+                    <SubmitButton
                       formAction={deleteQuestion}
-                      className="text-sm font-semibold text-red-700"
+                      className="inline-flex min-h-11 items-center text-sm font-semibold text-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+                      name="question_action"
+                      value="delete"
+                      pendingLabel="Deleting…"
                     >
                       Delete
-                    </button>
+                    </SubmitButton>
                   </div>
                 </form>
               );
@@ -377,7 +391,9 @@ export default async function ProgramEditor({
                 <label className="flex items-center gap-2 text-sm font-medium">
                   <input type="checkbox" name="required" /> Required
                 </label>
-                <button className={buttonClass}>Add question</button>
+                <SubmitButton className={buttonClass} pendingLabel="Adding question…">
+                  Add question
+                </SubmitButton>
               </div>
             </form>
           </div>
