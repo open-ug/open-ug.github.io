@@ -6,8 +6,5 @@ import { getSupabaseEnvironment } from "./env";
 
 export function createClient() {
   const { url, publishableKey } = getSupabaseEnvironment();
-  return createBrowserClient<Database>(
-    url,
-    publishableKey,
-  );
+  return createBrowserClient<Database>(url, publishableKey);
 }

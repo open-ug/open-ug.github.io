@@ -16,6 +16,8 @@ The former `GOOGLE_APPS_SCRIPT_URL` and `GOOGLE_APPS_SCRIPT_SECRET` variables ar
 
 ## Database setup
 
+Migrations are applied in timestamp order. `20260920175652_fix_rls_helper_permissions.sql` repairs authenticated RLS access by granting access only to current-user authorization wrappers; the parameterized role helpers remain private.
+
 Install the Supabase CLI, link the existing project, and apply the checked-in migration:
 
 ```bash

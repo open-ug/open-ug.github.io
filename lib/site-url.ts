@@ -17,6 +17,8 @@ export async function getSiteUrl() {
     normalizeOrigin(process.env.VERCEL_URL);
   if (configured) return configured;
 
-  const requestOrigin = normalizeOrigin((await headers()).get("origin") ?? undefined);
+  const requestOrigin = normalizeOrigin(
+    (await headers()).get("origin") ?? undefined,
+  );
   return requestOrigin ?? "http://localhost:3000";
 }

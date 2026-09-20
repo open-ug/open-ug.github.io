@@ -36,10 +36,10 @@ export default function Community() {
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 text-justify-custom">
               Open UG brings together undergraduate students at Makerere
-              University&apos;s College of Computing and Information Sciences. The
-              lab gives students space to learn from peers and mentors, build
-              open-source software, and explore foundational computing through
-              practical projects.
+              University&apos;s College of Computing and Information Sciences.
+              The lab gives students space to learn from peers and mentors,
+              build open-source software, and explore foundational computing
+              through practical projects.
             </p>
 
             <button className="bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary dark:hover:bg-primary hover:text-slate-900 transition-all cursor-pointer">

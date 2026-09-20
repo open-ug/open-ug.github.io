@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  Calendar,
-  Code2,
-  Users,
-} from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, Code2, Users } from "lucide-react";
 import ProgramCta from "./ProgramCta";
 
 export const metadata: Metadata = {

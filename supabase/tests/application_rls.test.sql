@@ -1,5 +1,9 @@
 begin;
-select plan(15);
+select plan(18);
+
+select ok(has_schema_privilege('authenticated', 'private', 'usage'), 'authenticated can resolve safe RLS helpers');
+select ok(has_function_privilege('authenticated', 'private.current_user_is_admin()', 'execute'), 'authenticated can execute current-user admin helper');
+select ok(not has_function_privilege('authenticated', 'private.is_admin(uuid)', 'execute'), 'parameterized admin helper remains private');
 
 insert into auth.users (id, email, raw_user_meta_data, aud, role)
 values

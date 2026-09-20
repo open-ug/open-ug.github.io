@@ -21,8 +21,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-slate-500 max-w-xs mb-8">
-              An undergraduate computing lab at Makerere University&apos;s College
-              of Computing and Information Sciences (CoCIS).
+              An undergraduate computing lab at Makerere University&apos;s
+              College of Computing and Information Sciences (CoCIS).
             </p>
             <div className="flex gap-4">
               <Link
@@ -119,9 +119,9 @@ export default function Footer() {
         </div>
 
         <p className="mb-8 max-w-4xl text-xs leading-5 text-slate-500 dark:text-slate-400">
-          Membership notice: Applying to participate in or contribute to any Open
-          UG Labs program or project automatically registers you as a member of
-          the Open UG Labs group.
+          Membership notice: Applying to participate in or contribute to any
+          Open UG Labs program or project automatically registers you as a
+          member of the Open UG Labs group.
         </p>
 
         {/* Bottom Bar */}
