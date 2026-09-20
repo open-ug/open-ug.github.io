@@ -118,6 +118,12 @@ export default function Footer() {
           </div>
         </div>
 
+        <p className="mb-8 max-w-4xl text-xs leading-5 text-slate-500 dark:text-slate-400">
+          Membership notice: Applying to participate in or contribute to any Open
+          UG Labs program or project automatically registers you as a member of
+          the Open UG Labs group.
+        </p>
+
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-slate-200 dark:border-slate-800 gap-6">
           <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">

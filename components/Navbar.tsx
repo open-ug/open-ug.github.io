@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AuthNav from "./AuthNav";
 
 export default function Navbar() {
   const navLinks = [
@@ -43,6 +44,7 @@ export default function Navbar() {
 
         {/* Action Button */}
         <div className="flex items-center gap-6">
+          <AuthNav />
           <Link
             href="/projects"
             className="bg-primary text-slate-900 px-4 sm:px-6 py-2.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all"

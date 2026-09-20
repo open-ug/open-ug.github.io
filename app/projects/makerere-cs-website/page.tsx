@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
   Calendar,
   Code2,
   Users,
 } from "lucide-react";
-import { APPLICATION_DEADLINE_LABEL } from "@/lib/application";
+import ProgramCta from "./ProgramCta";
 
 export const metadata: Metadata = {
   title: "Makerere CS Website Project | Open UG Labs",
@@ -68,16 +67,7 @@ export default function MakerereCsWebsiteProjectPage() {
           </div>
 
           <aside className="border border-slate-200 bg-slate-50 p-6">
-            <p className="text-sm font-semibold">Applications are open</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Deadline: {APPLICATION_DEADLINE_LABEL}
-            </p>
-            <Link
-              href="/projects/makerere-cs-website/apply"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-sky-600"
-            >
-              Apply to join <ArrowRight size={17} aria-hidden="true" />
-            </Link>
+            <ProgramCta />
           </aside>
         </div>
       </section>
@@ -170,12 +160,7 @@ export default function MakerereCsWebsiteProjectPage() {
                 Tell us how you would like to contribute.
               </p>
             </div>
-            <Link
-              href="/projects/makerere-cs-website/apply"
-              className="inline-flex items-center justify-center gap-2 bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white hover:bg-sky-600"
-            >
-              Start application <ArrowRight size={17} />
-            </Link>
+            <ProgramCta compact />
           </div>
         </div>
       </section>
