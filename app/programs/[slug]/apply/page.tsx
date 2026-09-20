@@ -3,7 +3,7 @@ import Link from "next/link";
 import { requireUser } from "@/lib/auth";
 import { buttonClass, secondaryButtonClass } from "@/lib/forms";
 import ApplicationQuestion from "@/components/ApplicationQuestion";
-import { saveApplication } from "../../actions";
+import { saveApplication, startApplication } from "../../actions";
 
 export default async function ApplyPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ error?: string; saved?: string }> }) {
   const { slug } = await params;
@@ -12,13 +12,11 @@ export default async function ApplyPage({ params, searchParams }: { params: Prom
   if (!program) notFound();
   const now = Date.now();
   const isOpen = program.status === "applications_open" && (!program.applications_open_at || new Date(program.applications_open_at).getTime() <= now) && (!program.applications_close_at || new Date(program.applications_close_at).getTime() >= now);
-  let { data: application } = await supabase.from("applications").select("id,status").eq("program_id", program.id).eq("applicant_id", user.id).maybeSingle();
+  const { data: application } = await supabase.from("applications").select("id,status").eq("program_id", program.id).eq("applicant_id", user.id).maybeSingle();
   if (application && application.status !== "draft") redirect(`/dashboard/applications/${application.id}`);
   if (!application) {
     if (!isOpen) redirect(`/programs/${slug}?closed=1`);
-    const result = await supabase.from("applications").insert({ program_id: program.id, applicant_id: user.id }).select("id,status").single();
-    if (!result.data) redirect(`/programs/${slug}?error=Unable to start an application.`);
-    application = result.data;
+    return <main className="min-h-[75vh] bg-slate-50 px-5 py-12 text-slate-950"><div className="mx-auto max-w-3xl"><Link className="text-sm font-semibold text-sky-700" href={`/programs/${slug}`}>← Program details</Link><div className="mt-6 border border-slate-200 bg-white p-6 sm:p-8"><h1 className="text-3xl font-semibold tracking-tight">Start your application</h1><p className="mt-3 text-sm leading-6 text-slate-600">A private draft will be created for {program.title}. You can save it and return before submitting.</p><form action={startApplication} className="mt-6"><input type="hidden" name="program_slug" value={slug} /><button className={buttonClass}>Create application draft</button></form></div></div></main>;
   }
   const [{ data: questions }, { data: answers }] = await Promise.all([
     supabase.from("program_questions").select("id,label,description,field_type,required,position,configuration").eq("program_id", program.id).order("position"),

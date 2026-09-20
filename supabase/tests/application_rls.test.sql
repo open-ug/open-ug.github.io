@@ -1,5 +1,5 @@
 begin;
-select plan(10);
+select plan(15);
 
 insert into auth.users (id, email, raw_user_meta_data, aud, role)
 values
@@ -21,11 +21,16 @@ select is((select count(*)::integer from public.applications), 1, 'applicant see
 select throws_ok($$update public.applications set status = 'accepted' where id = '40000000-0000-0000-0000-000000000001'$$, null, null, 'applicant cannot accept self');
 select lives_ok($$insert into public.application_answers (application_id, question_id, answer) values ('40000000-0000-0000-0000-000000000001', '30000000-0000-0000-0000-000000000001', '"Ready"')$$, 'applicant answers own draft');
 select lives_ok($$select public.submit_application('40000000-0000-0000-0000-000000000001')$$, 'applicant submits complete draft');
-select throws_ok($$update public.application_answers set answer = '"Changed"' where application_id = '40000000-0000-0000-0000-000000000001'$$, null, null, 'submitted answer is immutable');
+select lives_ok($$update public.application_answers set answer = '"Changed"' where application_id = '40000000-0000-0000-0000-000000000001'$$, 'blocked answer updates do not leak row existence');
+select is((select answer #>> '{}' from public.application_answers where application_id = '40000000-0000-0000-0000-000000000001'), 'Ready', 'submitted answer remains immutable');
+select is((select status::text from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'submitted', 'submission changes status');
+select is((select profile_snapshot ->> 'full_name' from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'Applicant One', 'submission records profile snapshot');
 select is((select count(*)::integer from public.application_reviews), 0, 'applicant cannot see reviews');
 
 select set_config('request.jwt.claims', '{"sub":"10000000-0000-0000-0000-000000000003","role":"authenticated"}', true);
 select is((select count(*)::integer from public.applications), 1, 'admin sees applications');
+select lives_ok($$select public.admin_set_application_status('40000000-0000-0000-0000-000000000001', 'shortlisted')$$, 'admin can advance application status');
+select is((select status::text from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'shortlisted', 'admin decision is persisted');
 
 select * from finish();
 rollback;

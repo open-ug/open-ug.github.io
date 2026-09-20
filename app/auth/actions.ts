@@ -1,10 +1,10 @@
 "use server";
 
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { formString } from "@/lib/forms";
 import { safeNext } from "@/lib/auth";
+import { getSiteUrl } from "@/lib/site-url";
 
 function authError(path: string, message: string, next?: string) {
   const params = new URLSearchParams({ error: message });
@@ -29,12 +29,11 @@ export async function signup(formData: FormData) {
   const studentNumber = formString(formData, "student_number");
   const registrationNumber = formString(formData, "registration_number");
   const next = safeNext(formData.get("next"));
-  if (!fullName || !email || password.length < 8 || !studentNumber || !registrationNumber) {
+  if (!fullName || !email || email.length > 254 || password.length < 8 || !studentNumber || !registrationNumber) {
     authError("/auth/signup", "Complete every field. Passwords must contain at least 8 characters.", next);
   }
 
-  const headerStore = await headers();
-  const origin = headerStore.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const origin = await getSiteUrl();
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -46,8 +45,14 @@ export async function signup(formData: FormData) {
   });
 
   if (error) {
-    const duplicate = /already|database error|unique/i.test(error.message);
-    authError("/auth/signup", duplicate ? "An account or student identifier is already registered." : "We could not create the account. Please try again.", next);
+    const duplicateAccount = /already registered|user already exists/i.test(error.message);
+    const duplicateIdentifier = /student_number or registration_number|duplicate key|unique/i.test(error.message);
+    const message = duplicateAccount
+      ? "An account with this email is already registered."
+      : duplicateIdentifier
+        ? "That student number or registration number is already registered."
+        : "Account setup failed. Please try again; contact Open UG Labs if the problem continues.";
+    authError("/auth/signup", message, next);
   }
   if (data.session) redirect(next);
   redirect(`/auth/check-email?email=${encodeURIComponent(email)}`);
@@ -55,8 +60,7 @@ export async function signup(formData: FormData) {
 
 export async function requestPasswordReset(formData: FormData) {
   const email = formString(formData, "email").toLowerCase();
-  const headerStore = await headers();
-  const origin = headerStore.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const origin = await getSiteUrl();
   const supabase = await createClient();
   await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin}/auth/confirm?next=/auth/reset-password` });
   redirect("/auth/forgot-password?sent=1");
@@ -71,6 +75,7 @@ export async function updatePassword(formData: FormData) {
   const supabase = await createClient();
   const { error } = await supabase.auth.updateUser({ password });
   if (error) authError("/auth/reset-password", "This reset link is invalid or expired. Request a new one.");
+  await supabase.auth.signOut({ scope: "global" });
   redirect("/auth/login?message=Password updated. You can now sign in.");
 }
 
