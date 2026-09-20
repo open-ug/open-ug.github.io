@@ -16,7 +16,7 @@ The former `GOOGLE_APPS_SCRIPT_URL` and `GOOGLE_APPS_SCRIPT_SECRET` variables ar
 
 ## Database setup
 
-Migrations are applied in timestamp order. `20260920175652_fix_rls_helper_permissions.sql` repairs authenticated RLS access by granting access only to current-user authorization wrappers; the parameterized role helpers remain private.
+Migrations are applied in timestamp order. `20260920175652_fix_rls_helper_permissions.sql` repairs authenticated RLS access by granting access only to current-user authorization wrappers; the parameterized role helpers remain private. The `20260920221259` through `20260920222503` migrations add and harden the admin-only account metrics and user-list RPCs used by `/admin/users`.
 
 Install the Supabase CLI, link the existing project, and apply the checked-in migration:
 
@@ -30,7 +30,7 @@ For a disposable local stack:
 
 ```bash
 supabase start
-supabase db reset
+supabase db reset --local
 supabase test db
 pnpm dev
 ```

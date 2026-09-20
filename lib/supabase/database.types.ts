@@ -36,6 +36,38 @@ export type ReviewRecommendation =
   | "accept"
   | "reject";
 
+export type AdminUserMetrics = {
+  total_accounts: number;
+  confirmed_accounts: number;
+  unconfirmed_accounts: number;
+  new_accounts_30d: number;
+  active_accounts_30d: number;
+  completed_profiles: number;
+  accounts_with_applications: number;
+  administrator_accounts: number;
+  reviewer_accounts: number;
+  suspended_accounts: number;
+};
+
+export type AdminUserRow = {
+  total_count: number;
+  user_id: string;
+  email: string | null;
+  full_name: string | null;
+  student_number: string | null;
+  registration_number: string | null;
+  university: string | null;
+  course: string | null;
+  year_of_study: number | null;
+  role: UserRole;
+  email_confirmed: boolean;
+  suspended: boolean;
+  account_created_at: string;
+  last_sign_in_at: string | null;
+  application_count: number;
+  submitted_application_count: number;
+};
+
 export type Database = {
   public: {
     Tables: {
@@ -237,6 +269,18 @@ export type Database = {
       admin_set_application_status: {
         Args: { target_application_id: string; next_status: ApplicationStatus };
         Returns: undefined;
+      };
+      admin_user_metrics: {
+        Args: Record<PropertyKey, never>;
+        Returns: AdminUserMetrics[];
+      };
+      admin_list_users: {
+        Args: {
+          search_term?: string | null;
+          result_limit?: number;
+          result_offset?: number;
+        };
+        Returns: AdminUserRow[];
       };
     };
     Enums: {

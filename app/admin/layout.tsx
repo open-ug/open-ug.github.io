@@ -12,6 +12,7 @@ export default async function AdminLayout({
       <div className="mx-auto max-w-7xl px-5 py-8 md:px-8">
         <div className="mb-8 flex flex-wrap items-center gap-6 border-b border-slate-200 pb-5 text-sm font-semibold">
           <Link href="/admin">Programs</Link>
+          {role === "admin" && <Link href="/admin/users">Users</Link>}
           <span className="text-slate-400">
             {role === "admin" ? "Administrator" : "Reviewer"}
           </span>

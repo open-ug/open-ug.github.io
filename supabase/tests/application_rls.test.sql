@@ -1,5 +1,5 @@
 begin;
-select plan(18);
+select plan(21);
 
 select ok(has_schema_privilege('authenticated', 'private', 'usage'), 'authenticated can resolve safe RLS helpers');
 select ok(has_function_privilege('authenticated', 'private.current_user_is_admin()', 'execute'), 'authenticated can execute current-user admin helper');
@@ -30,11 +30,14 @@ select is((select answer #>> '{}' from public.application_answers where applicat
 select is((select status::text from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'submitted', 'submission changes status');
 select is((select profile_snapshot ->> 'full_name' from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'Applicant One', 'submission records profile snapshot');
 select is((select count(*)::integer from public.application_reviews), 0, 'applicant cannot see reviews');
+select throws_ok($$select * from public.admin_user_metrics()$$, '42501', 'Administrator access required', 'applicant cannot read account metrics');
 
 select set_config('request.jwt.claims', '{"sub":"10000000-0000-0000-0000-000000000003","role":"authenticated"}', true);
 select is((select count(*)::integer from public.applications), 1, 'admin sees applications');
 select lives_ok($$select public.admin_set_application_status('40000000-0000-0000-0000-000000000001', 'shortlisted')$$, 'admin can advance application status');
 select is((select status::text from public.applications where id = '40000000-0000-0000-0000-000000000001'), 'shortlisted', 'admin decision is persisted');
+select is((select total_accounts::integer from public.admin_user_metrics()), 3, 'admin sees total account metric');
+select is((select count(*)::integer from public.admin_list_users(null, 50, 0)), 3, 'admin can list accounts');
 
 select * from finish();
 rollback;
